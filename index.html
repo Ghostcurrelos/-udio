@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Luzes RGB em torno de "play"</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #000;
+    }
+
+    .play {
+      font-size: 80px;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      position: relative;
+      animation: color-change 5s infinite;
+    }
+
+    .play-button {
+      border: none;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    @keyframes color-change {
+      0% {
+        text-shadow: 
+          0 0 10px red, 
+          0 0 20px orange, 
+          0 0 30px yellow;
+      }
+      50% {
+        text-shadow: 
+          0 0 10px blue, 
+          0 0 20px indigo, 
+          0 0 30px violet;
+      }
+      100% {
+        text-shadow: 
+          0 0 10px green, 
+          0 0 20px yellowgreen, 
+          0 0 30px lime;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="play-button">
+    <h1 class="play">play</h1>
+  </button>
+
+  <script>
+    const button = document.querySelector('.play-button');
+    const audio = new Audio('gemido-whatsapp.mp3');
+
+    button.addEventListener('click', () => {
+      audio.play();
+    });
+  </script>
+</body>
+</html>
+<style>
+    body {
+      background-color: #000;
+      background-image: url('gamer_background.jpg');
+      background-repeat: repeat;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .led-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .led-line span {
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      animation: led-animation linear infinite;
+    }
+
+    .led-line span:nth-child(1) {
+      left: 5%;
+      animation-duration: 8s;
+    }
+
+    .led-line span:nth-child(2) {
+      left: 20%;
+      animation-duration: 10s;
+    }
+
+    .led-line span:nth-child(3) {
+      left: 35%;
+      animation-duration: 6s;
+    }
+
+    .led-line span:nth-child(4) {
+      left: 50%;
+      animation-duration: 7s;
+    }
+
+    .led-line span:nth-child(5) {
+      left: 65%;
+      animation-duration: 9s;
+    }
+
+    @keyframes led-animation {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(100%);
+      }
+    }
+    body {
+        margin: 0;
+        padding: 0;
+      }
+  
+      .opening {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  
+      .opening h1 {
+        font-size: 32px;
+        text-align: center;
+        margin-top: 30px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        animation: text-animation 4s linear infinite;
+      }
+
+    @keyframes text-animation {
+      0% {
+        color: #FF4136;
+      }
+      25% {
+        color: #2ECC40;
+      }
+      50% {
+        color: #0074D9;
+      }
+      75% {
+        color: #FF851B;
+      }
+      100% {
+        color: #B10DC9;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="led-line">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
